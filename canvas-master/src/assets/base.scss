@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+body,
+ul,
+ol,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+canvas {
+    display: block;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clearfix::before,
+.clearfix::after {
+    display: table;
+    content: '';
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.controller {
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 400px;
+    padding-top: 5px;
+    background: rgba(0, 0, 0, .5);
+    font-size: 14px;
+
+    .item {
+        display: flex;
+        margin-bottom: 5px;
+        padding: 0 10px;
+    }
+
+    span {
+        display: block;
+        color: #fff;
+        margin-right: 10px;
+    }
+
+    input {
+        display: block;
+        padding: 0;
+        width: 100px;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        padding: 0 5px;
+    }
+
+    .download {
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+        margin: 10px 0 ;
+    }
+}

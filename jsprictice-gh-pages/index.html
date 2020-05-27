@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>prictie</title>
+		<style>
+			#img-box{
+				width:400px;
+				height:200px;
+				margin:50px auto;
+				perspective:800px;
+			}
+			#img-box>img{float:left;}
+			.btn{
+				text-align:center;
+			}
+			.btn button{
+			background-color:green;
+			border-radius:5px;
+			box-shadow:2px 2px 5px yellow;
+			}
+		</style>
+		<script>
+		window.onload=function(){
+			var btn=document.getElementById("bt");
+			var imgs=document.querySelectorAll("img");
+			var on=true;//决定用户是否可以再次点击
+			btn.onclick=function(){if(!on){return;}
+				on=false;
+			var num=0;		//保存运动完成的图片数量
+		for(var i=0; i<imgs.length;i++){
+			(function(i){
+				setTimeout(function(){
+					move(imgs[i],'1s',function(){
+					this.style.transform="scale(0)";
+					//this.opacity='0';
+				},function(){
+						//第二个运动
+					move(this,'1s',function(){
+						this.style.transform='scale(1)';
+						this.style.opacity='0';
+						},function(){
+							num++;
+							if(num==imgs.length){
+								tobig();
+							}
+						});
+					});
+				},Math.random()*1000);
+				})(i)
+				}
+		};
+		function tobig(){
+			for(var i=0;i<imgs.length;i++){
+				imgs[i].style.transition='';
+				imgs[i].style.transform='rotateY(0deg) translateZ(-'+Math.random()*500+'px)';
+				(function(i){
+					setTimeout(function(){
+						move(imgs[i],'1s',function(){
+							this.style.opacity=1;
+							this.style.transform='rotateY(360deg) translateZ(0)';
+						},function(){
+								on=true;
+								});
+					},Math.random()*1000);
+				})(i);
+			}
+		}
+		};
+			function move(obj,time,dofn,callBack ){
+				obj.style.transition=time;
+				dofn.call(obj);
+				var called=false;
+				obj.addEventListener('transitionend',function(){
+					if(!called){callBack&&callBack.call(obj);called=true;}
+					
+					},false);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="img-box">
+			<img src="images/1.jpg">
+			<img src="images/2.jpg">
+			<img src="images/3.jpg">
+			<img src="images/4.jpg">
+			<img src="images/5.jpg">
+			<img src="images/6.jpg">
+			<img src="images/7.jpg">
+			<img src="images/8.jpg">
+			<img src="images/9.jpg">
+			<img src="images/10.jpg">
+			<img src="images/11.jpg">
+			<img src="images/12.jpg">
+			<img src="images/13.jpg">
+			<img src="images/14.jpg">
+			<img src="images/15.jpg">
+			<img src="images/16.jpg">
+			<img src="images/17.jpg">
+			<img src="images/18.jpg">
+			<img src="images/19.jpg">
+			<img src="images/20.jpg">
+			<img src="images/21.jpg">
+			<img src="images/22.jpg">
+			<img src="images/23.jpg">
+			<img src="images/24.jpg">
+			<img src="images/25.jpg">
+			<img src="images/26.jpg">
+			<img src="images/27.jpg">
+			<img src="images/28.jpg">
+			<img src="images/29.jpg">
+			<img src="images/30.jpg">
+			<img src="images/31.jpg">
+			<img src="images/32.jpg">
+		</div>
+		<div class="btn">
+			<button id="bt">查看效果</button>
+		</div>
+	</body>
+</html>

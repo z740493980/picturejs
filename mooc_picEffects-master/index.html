@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>慕课网 —— CSS3+JS 实现超炫的散列画廊特效</title>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body onselectstart="return false;">
+
+<div class="warp" id="warp">
+    <!-- .photo 负责平移和旋转 -->
+    <!-- .photo-front和.photo-back负责表示正面向上、反面向上的状态 -->
+    <div class="photo photo-front" onclick="turn(this)" id="photo_{{id}}">
+        <!-- .photo-warp 负责3D旋转 -->
+        <div class="photo-warp">
+            <div class="sider sider-front">
+                <p class="image">
+                    <img src="./images/{{img}}" />
+                </p>
+                <p class="caption">
+                    {{caption}}
+                </p>
+            </div>
+            <div class="sider sider-back">
+                <p class="desc">{{desc}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="./images/data.js"></script>
+<!-- <script type="text/javascript" src="./jq/index.js"></script> -->
+<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript">
+// function turn(elm) {
+//     var cls = elm.className;
+//     if ( /photo-front/.test(cls) ) {
+//         cls = cls.replace(/photo-front/, 'photo-back');
+//     } else {
+//         cls = cls.replace(/photo-back/, 'photo-front');
+//     }
+//     return elm.className = cls;
+// }
+</script>
+</body>
+</html>
